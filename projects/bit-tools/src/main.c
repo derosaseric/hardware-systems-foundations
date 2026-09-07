@@ -1,13 +1,5 @@
 #include <stdio.h>
-
-void print_binary_8(unsigned int number)
-{
-    for (int bit = 7; bit >= 0; bit--)
-    {
-        printf("%u", (number >> bit) & 1u);
-    }
-    printf("\n");
-}
+#include "bit_tools.h"
 
 int main(void)
 {
