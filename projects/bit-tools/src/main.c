@@ -1,21 +1,24 @@
 #include <stdio.h>
+#include <stdint.h>
 #include "bit_tools.h"
 
 int main(void)
 {
-    unsigned int number;
+    unsigned int input;
 
     printf("Enter a number (0-255): ");
-    if (scanf("%u", &number) != 1)
+    if (scanf("%u", &input) != 1)
     {
         printf("Invalid input.\n");
         return 1;
     }
-    if (number > 255)
+    if (input > 255)
     {
         printf("Invalid input. Number must be between 0 and 255.\n");
         return 1;
     }
+
+    uint8_t number = (uint8_t) input;
 
     printf("Choose an operation:\n");
     printf("1. Inspect bit\n");
@@ -49,8 +52,8 @@ int main(void)
         return 1;
     }
 
-    unsigned int mask = 1u << bit;
-    unsigned int result;
+    uint8_t mask = (uint8_t)(1u << bit);
+    uint8_t result;
 
     switch (selection)
     {
@@ -69,19 +72,19 @@ int main(void)
     }
 
     printf("\nOriginal:\n");
-    printf("Decimal: %u\n", number);
+    printf("Decimal: %u\n", (unsigned int) number);
     printf("Binary: ");
     print_binary_8(number);
 
     if (selection == 1)
     {
         printf("\nInspection Result:\n");
-        printf("Bit %d: %u\n", bit, result);
+        printf("Bit %d: %u\n", bit, (unsigned int) result);
     }
     else
     {
         printf("\nResult:\n");
-        printf("Decimal: %u\n", result);
+        printf("Decimal: %u\n", (unsigned int) result);
         printf("Binary: ");
         print_binary_8(result);
     }

@@ -1,6 +1,8 @@
 #ifndef BIT_TOOLS_H
 #define BIT_TOOLS_H
 
-void print_binary_8(unsigned int number);
+#include <stdint.h>
+
+void print_binary_8(uint8_t number);
 
 #endif
